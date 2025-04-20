@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model UserInfo {
+  id        String   @id @default(cuid())
+  ipAddress String?
+  userAgent String?
+  language  String?
+  screenSize String?
+  timezone  String?
+  platform  String?
+  browser   String?
+  referrer  String?
+  location  String?
+  visitedAt DateTime @default(now())
+  country   String?
+  city      String?
+  device    String?
+  osName    String?
+  osVersion String?
+  browserVersion String?
+  webGLRenderer String?
+  cpuCores  Int?
+  ram       String?
+  cookiesEnabled Boolean?
+  localStorageAvailable Boolean?
+  sessionStorageAvailable Boolean?
+  connectionType String?
+  batteryLevel Float?
+  batteryCharging Boolean?
+  orientation String?
+  touchScreen Boolean?
+  cookies    Json?
+  additionalData Json?
+}
