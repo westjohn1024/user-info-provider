@@ -112,6 +112,17 @@ export async function collectUserInfo(): Promise<UserInfoData> {
     console.error('Error getting battery info:', e);
   }
 
+  // Get IP address
+  try {
+    const ipResponse = await fetch('/api/get-ip-address');
+    if (!ipResponse.ok) {
+      const data = await ipResponse.json();
+      userInfo.ipAddress = data.ipAddress;
+    }
+  } catch (e) {
+    console.error('Error getting IP address:', e);
+  }
+
   return userInfo;
 }
 

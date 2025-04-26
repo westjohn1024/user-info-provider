@@ -7,7 +7,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { collectUserInfo, sendUserInfoToServer, UserInfoData } from '@/lib/user-info';
+import { collectUserInfo, UserInfoData} from '@/lib/user-info';
 
 export default function Home() {
   const [userInfo, setUserInfo] = useState<UserInfoData | null>(null);
@@ -168,3 +168,7 @@ export default function Home() {
     </div>
   );
 }
+function sendUserInfoToServer(info: UserInfoData) {
+  throw new Error('Function not implemented.');
+}
+
